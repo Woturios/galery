@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="pl">
+<html lang="en">
 <head>
 	<meta charset="utf-8"/>
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,10 +29,15 @@
 		<div id="logo">
 			Count Dooku Wears Hermes 
 		</div>
+
+		<h1>Database</h1>
+		<input type = "text" placeholder="name" id = "nameField">
+		<input type = "text" placeholder="age" id = "ageField">
+		<button onclick="writeData">Submit</button>
 		
 <!--wpisy-->		
 
-		<div id="wpisy">
+		<!-- <div id="wpisy">
 		
 		
 			<div class="post">
@@ -141,7 +146,7 @@
 			
 			
 			
-	<div class="clear"></div>
+	<div class="clear"></div> -->
 		
 			
 	
@@ -174,6 +179,13 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+
+  function writeData() {
+	firebase.database().ref("User").set({
+		name: document.getElementById("nameField").value,
+		age: document.getElementById("ageField").value
+	});
+  }
 </script>
 
 </body>
